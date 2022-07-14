@@ -8,8 +8,9 @@ defmodule Bank.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      # Starts a worker by calling: Bank.Worker.start_link(arg)
-      # {Bank.Worker, arg}
+      Bank.BankApp,
+      Bank.Handlers.AccountOpenedHandler,
+      Bank.Handlers.MoneyWithdrewHandler
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
