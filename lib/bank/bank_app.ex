@@ -1,8 +1,5 @@
 defmodule Bank.BankApp do
-  use Commanded.Application,
-    otp_app: :bank,
-    event_store: [adapter: Commanded.EventStore.Adapters.InMemory]
+  use Commanded.Application, otp_app: :bank
 
-  router Bank.Router
-
+  router(Bank.Router)
 end

@@ -23,6 +23,8 @@ defmodule Bank.MixProject do
   defp deps do
     [
       {:commanded, "~> 1.3"},
+      {:eventstore, "~> 1.3"},
+      {:commanded_eventstore_adapter, "~> 1.1"},
       {:jason, "~> 1.2"}
     ]
   end

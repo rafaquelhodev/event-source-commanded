@@ -45,12 +45,15 @@ defmodule Bank.Domain.Account do
   # State mutators
 
   def apply(%__MODULE__{} = account, %AccountOpened{} = event) do
+    IO.inspect("REPLAYING CREATING ACCOUNT")
     %AccountOpened{account_number: account_number, initial_balance: initial_balance} = event
 
     %__MODULE__{account | account_number: account_number, balance: initial_balance}
   end
 
   def apply(%__MODULE__{} = account, %MoneyWithdrew{} = event) do
+    IO.inspect("REPLAYING WITHDRAW MONEY ACCOUNT")
+
     %MoneyWithdrew{account_number: account_number, amount: amount} = event
 
     %__MODULE__{account | account_number: account_number, balance: account.balance - amount}
